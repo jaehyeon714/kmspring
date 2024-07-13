@@ -13,7 +13,14 @@ public class HelloController {
 	@RequestMapping("/")
 	public String mainpage() {
 		System.out.println("mainpage메소드 실행!!");
+		// /WEB-INF/views/index.jsp
 		return "index";
+	}
+	
+	@RequestMapping("/main")
+	public String main() {
+		System.out.println("잘됨");
+		return "main";
 	}
 	
 }
