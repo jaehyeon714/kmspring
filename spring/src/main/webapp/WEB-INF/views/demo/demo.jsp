@@ -25,7 +25,8 @@
 			<div class="form-group row">
 			<label for="devAge" class="col-sm-2 col-form-label">나이</label>
 			<div class="col-sm-10">
-				<input type="number" class="form-control" id="devAge" name="devAge">
+				<input type="number" class="form-control" id="devAge" name="devAge" 
+				required="true">
 			</div>
 			</div>
 			<div class="form-group row">
@@ -63,11 +64,82 @@
 					<label class="form-check-label" for="devLang2">Javascript</label>
 					</div>
 				</div>
+				
+				<div class="form-group row">
+					<label for="devName" class="col-sm-2 col-form-label">키</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="devHeight" name="devHeight">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="devName" class="col-sm-2 col-form-label">생일</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" id="birthDay" name="birthDay">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="devName" class="col-sm-2 col-form-label">저장시간</label>
+					<div class="col-sm-10">
+						<input type="datetime-local" class="form-control" id="enrollDate" name="enrollDate">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="devName" class="col-sm-2 col-form-label">우편번호</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="zipCode" name="zipCode">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="devName" class="col-sm-2 col-form-label">시도</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="city" name="city">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="devName" class="col-sm-2 col-form-label">상세주소</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="detail" name="detail">
+					</div>
+				</div>
+				
 				<div class="form-group-row">
 					<div class="col-sm-12">
 						<button type="button" class="btn btn-outline-info col-sm-12"
 						onclick="requestTest('demo1.do');">
 						기본 서블릿처럼 이용하기
+						</button>
+					</div>
+				</div>
+				
+				<div class="form-group-row">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-outline-info col-sm-12"
+						onclick="requestTest('demo2');">
+						파라미터 이용하기
+						</button>
+					</div>
+				</div>
+				<div class="form-group-row">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-outline-info col-sm-12"
+						onclick="requestTest('demo3');">
+						@RequestParam 이용하기
+						</button>
+					</div>
+				</div>
+				<div class="form-group-row">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-outline-info col-sm-12"
+						onclick="requestTest('demo4');">
+						Command 이용하기
+						</button>
+					</div>
+				</div>
+				<div class="form-group-row">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-outline-info col-sm-12"
+						onclick="requestTest('demo5');">
+						Map 이용하기
 						</button>
 					</div>
 				</div>
@@ -79,8 +151,14 @@
 	function requestTest(url) {
 		const form=document.getElementById("devFrm");
 		//<form action="">
-		form.action = "${path}/demo/"+url;
-		form.submit();
+		//devAge값 확인하기 -> validation(유효성검사)
+// 		const devAge=document.getElementById("devAge").value;
+// 		if (devAge.length <= 0) {
+// 			alert("나이를 입력하세요");
+// 		} else {
+			form.action = "${path}/demo/"+url;
+			form.submit();
+// 		}
 	}
 </script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
